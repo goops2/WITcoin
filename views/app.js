@@ -1,10 +1,10 @@
 const Web3 = require('web3');
 const web3 = new Web3('http://localhost:8545')
 
+const path = require('path');
 
 const express = require('express');
 const app = express();
-const path = require('path');
 
 /*
 this assigns the router module
@@ -22,12 +22,18 @@ app.set('view engine', 'pug');
 // point to static files
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*
+print all the accounts running on testRPC
+
 web3.eth.getAccounts().then(e => console.log(e));
 
-/*
-create the server
-
-app.listen(3000, function() {
-
-})
 */
+
+// direct requests to localhost:3000 to form
+app.get('/', (req, res) => {
+  res.sendFile('/home/delo/witcoin/public/html/index.html')
+})
+
+// create the server
+
+app.listen(3000);
