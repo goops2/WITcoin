@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href='/stylesheets/style.css'/>
+    <script>
+      function submitForm() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+           document.getElementById('banner').innerHTML = this.responseText;
+          }
+        };
+        xhttp.open("GET", "ajax-request", true);
+        xhttp.send();
+      };
+    </script>
+  </head>
+  <body>
+    <h1 id='banner'>This is the WITcoin registration page. This page is in alpha.</h1>
+    <div class='formWrapper'>
+      <form id='mainForm' action= 'processForm.php' method='POSt'>
+        <div class='formInput' id='witID'>
+          <input type='text' placeholder='WIT ID number' / />
+        </div>
+        <div class='formInput' id='witEmail'>
+          <input type='text' placeholder= 'Email' />
+        </div>
+        <div class='formInput' id='firstName'>
+          <input type='text' placeholder='First name' />
+        </div>
+        <div class='formInput' id='lastName'>
+          <input type='text' placeholder='Last name' />
+        </div>
+        <div class='formInput' id='dateOfBirth'>
+          <input type='date' />
+        </div>
+        <div classs='formInput' id='newPass'>
+          <input type='text'placeholder='Choose a Password'/>
+        </div>
+        <div class='formInput' id='confirmPass'>
+          <input type='text'placeholder='Confirm Password'/>
+        </div>
+        <div class='formInput' id='submitButton'>
+          <input type='submit' value='Submit' onclick='submitForm'/>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
