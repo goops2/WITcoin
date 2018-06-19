@@ -8,16 +8,10 @@ router.get('/', function(req, res, next) {
 });
 
 /* go to landing page */
-router.get('/home', function(req, res){
-  res.sendFile('/home/delo/witcoin/views/index.html')
+router.get('/home', function(req, res) {
+  res.sendFile('/home/delo/witcoin/public/html/index.html')
 });
 
-router.get('/user/:username', function (req, res, next) {
-  console.log('Username:', req.username)
-  next()
-});
-
-/*  */
 
 
 module.exports = router;
